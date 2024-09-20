@@ -1,4 +1,4 @@
-<!-- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) -->
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
 
 **quTARANG** is a Python package designed for studying turbulence in quantum systems, specifically in atomic Bose-Einstein condensates (BECs), using the mean-field Gross-Pitaevskii equation (GPE). The non-dimensional GPE implemented in quTARANG is given by
@@ -12,7 +12,7 @@ where $\psi(\vec{r},t)$ is the macroscopic, non-dimensionalized complex wave fun
 This package is hardware-agnostic, allowing users to run simulations on either a CPU or a GPU by simply setting the `device` parameter in the `para.py` file, as explained below. **quTARANG** uses the Time-Splitting Pseudo-Spectral (TSSP) method for evolving the system, ensuring both efficiency and accuracy. Additionally, the package can compute stationary states by evolving the GPE in imaginary time. **quTARANG** also includes functions to compute various statistical quantities like spectra and fluxes and compute the energy spectra using a conventional binning method, and a more resolved spectra using the angle-averaged Wiener-Khinchin approach [see](https://journals.aps.org/pra/pdf/10.1103/PhysRevA.106.043322). 
 
 The directory structure of **quTARANG** package is as follows:
-<!-- ```
+```
 ├── quTARANG
     ├── config
     ├── initial_cond
@@ -21,7 +21,7 @@ The directory structure of **quTARANG** package is as follows:
 ├── para.py
 ├── main.py
 └── postprocessing
-``` -->
+```
 - `quTARANG` directory contains the quTARANG's source files.
 - `para.py` file is used to set the parameters required to perform a sumulaition.
 - `main.py` is used to define the initial user conditions and is the file executed to start the simulation
@@ -219,13 +219,13 @@ While in case of computing the stationary state (`imgtime = True` in `para.py`) 
 ## Postprocessing 
 Once the output from ***quTARANG*** has been generated in the output directory, users can post-process the data using the files within the `postprocessing` directory. The structure of the directories and files within the `postprocessing` directory are as follows:
 
-<!-- ```
+```
 ├── src
 ├── op_path.py    
 ├── plot_energy.py
 ├── plot_rms.py
 └── plot_spectra.ipynb
-``` -->
+``` 
 
 The `src` directory contains the classes and fucntions for the computation of spectra, fluxes and generation of animation. While in `op_path.py` users  needs to set the location of the output data directory. After setting this location, users can plot energy and RMS evolution by running `plot_energy.py` and `plot_rms.py`, respectively. The plots and anmations correspoending to the density and phase will be generated using the jupyter notebook named `plot_animation.ipynb` while the spectra and flux plots can be generated using the jupyter notebook `plot_spectra.ipynb`. The comments in the cells of these notebooks explain the usage of each of the functions inside these notebooks. The output plots will be stored in a newly created subdirectory named `postprocessing` within the original output directory. 
 
