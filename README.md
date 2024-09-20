@@ -155,7 +155,7 @@ the user has to define the functions that generate the initial wavefunction and 
 
 - `ncp`: An instance of either NumPy(for a CPU) or cuPy(for a GPU), depending on the device used for code execution.
 - `grid`: An object containing the grids for the $x-, \ y-$, and $z-$ axes, stored in the `x_mesh`, `y_mesh`, and `z_mesh` variables, respectively.
-The following is an example for $ \psi(\vec{r},0)=\left(\frac{1}{\sqrt{2}\pi}\right)^{1/2} e^{-(x^2+2y^2)/4}$ and $V(\vec{r},0)=\frac{1}{2}(x^2+4y^2)$.
+The following is an example for $\psi(\vec{r},0)=\left(\frac{1}{\sqrt{2}\pi}\right)^{1/2} e^{-(x^2+2y^2)/4}$ and $V(\vec{r},0)=\frac{1}{2}(x^2+4y^2)$.
 
 ```python
 #main.py
@@ -233,7 +233,7 @@ The `src` directory contains the classes and fucntions for the computation of sp
 
 1. 2D case:  
 
-    $$ \psi(\vec{r},0)=\left(\frac{1}{\sqrt{2}\pi}\right)^{1/2} e^{-(x^2+2y^2)/4} $$
+    $$\psi(\vec{r},0)=\left(\frac{1}{\sqrt{2}\pi}\right)^{1/2} e^{-(x^2+2y^2)/4}$$
 
     $$V(\vec{r},0)=\frac{1}{2}(x^2+4y^2)$$ 
 
