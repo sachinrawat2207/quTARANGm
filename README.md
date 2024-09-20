@@ -1,7 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
 
-**quTARANG** is a Python package designed for studying turbulence in quantum systems, specifically in atomic Bose-Einstein condensates (BECs), using the mean-field Gross-Pitaevskii equation (GPE). The non-dimensional GPE implemented in quTARANG is given by
+**quTARANG** is a Python package designed for studying turbulence in quantum systems, specifically in atomic Bose-Einstein condensates (BECs). It utilizes the mean-field Gross-Pitaevskii equation (GPE) to model the dynamics of these condensates. The non-dimensional GPE implemented in quTARANG is expressed as follows:
 
 $$
 i\partial_t\psi(\vec{r},t) = -\frac{1}{2}\nabla^2\psi(\vec{r},t) + V(\vec{r},t)\psi(\vec{r},t) + g|\psi(\vec{r},t)|^2\psi(\vec{r},t),
@@ -24,9 +24,9 @@ The directory structure of **quTARANG** package is as follows:
 ```
 - `quTARANG` directory contains the quTARANG's source files.
 - `para.py` file is used to set the parameters required to perform a sumulaition.
-- `main.py` is used to define the initial user conditions and is the file executed to start the simulation
-- `postprocessing` directory contains libraries and tools used for data postprocessing, including:
-    1. Computation and plotting of spectra (for various energies and particle numbers) using the conventional binning method, along with more detailed spectra using the angle-averaged Wiener-Khinchin approach.
+- `main.py` `main.py` is used to define the user defined initial conditions and it is the file that should be executed to start the simulation.
+- `postprocessing` directory contains libraries and tools used for data postprocessing, which includes:
+    1. Computation and plotting of the spectra (for various energies and particle numbers) using the conventional binning method, along with more detailed spectra using the angle-averaged Wiener-Khinchin approach.
     2. Computation and plotting of fluxes for particle number and different energies.
     3. Ploting of time series of energies as well as the the  root mean square (RMS) values of the condensate.
 
@@ -43,11 +43,11 @@ The following Python packages need to be installed to run quTARANG
     * `imageio` : To generate animation.
 
 
-In addition to the above packages, the user can install LaTeX (preferably TeX Live) to generate symbols and numbers in a more refined format.
+In addition to the above packages, the user can install LaTeX (preferably TeX Live) to generate symbols and numbers in more refined format.
 
 
 ## Running quTARANG
-Before starting the simulation, user need to configure the parameters and initial conditions. This is done using the para.py and main.py files, respectively.
+Before starting the simulation, user needs to configure the parameters and initial conditions. This is done using the para.py and main.py files, respectively.
 
 ### Description of `para.py` file.
 ```python
