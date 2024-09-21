@@ -32,7 +32,7 @@ import os
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 from op_path import *
 ############################################
-device = 'cpu'
+
 op_dir = Path(path)/'postprocessing/'
 
 if not Path(op_dir).exists():
