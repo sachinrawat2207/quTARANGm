@@ -13,46 +13,41 @@ device_rank = 1            # Set GPU no in case if you are running on a single G
 # Set grid size 
 Nx = 256
 Ny = 256
-Nz = 256
+Nz = 1
     
 # Set box length
 Lx = 16
 Ly = 16
-Lz = 16
+Lz = 1
 
 # Set maximum time and dt
-tmax = 5    
+tmax = 8    
 dt = 0.001
 
 # Choose the value of the non linerarity
-g = 0.1
+g = 2
 
-inp_type = "fun"       # Choose the initial condition type <"fun">, <"dat">, <"pdf"
+inp_type = "fun"       # Choose the initial condition type <"fun">, <"dat">, <"pdf">
 
-type = "rp"            # In case of inp_type = "pdf" set the type of initial condition <"rp">, <"rv">, <"vl"> for 2D and <"rp"> for 3D.
+typ = "rp"            # In case of inp_type = "pdf" set the type of initial condition <"rp">, <"rv">, <"vl"> for 2D and <"rp"> for 3D.
 
 # If inp_type = "dat" then set the input path
 in_path = "/path/to/input_directory"
 
-# Set output folder path
-op_path = "../output_evolve3D"
 
-# Choose the scheme need to implement in the code
-scheme = "TSSP"          # Choose the shemes <"TSSP">, <"RK4"> etc
+# Set output folder path
+op_path = "../output_evolve2D"
+
+scheme = "TSSP"        
 
 imgtime = False          # set <False> for real time evolution and <True> for imaginary time evolution
 delta = 1e-12
 
-
-# To resume the Run
-resume = False
-
 overwrite = False
 
 # Wavefunction save setting
+save_wfc = True
 wfc_start_step = 0
-
-# make wfc_iter too big to stop saving the wfc 
 wfc_iter_step = 500
 
 # Rms save setting

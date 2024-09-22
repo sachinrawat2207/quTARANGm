@@ -72,7 +72,7 @@ def show_params():
     print('dt: ', para.dt)
     print('device: ', para.device)
     if para.inp_type == "pdf":
-        print("inital condition type:", para.type)
+        print("inital condition type:", para.typ)
     if para.imgtime == True:
         print("Stoping criteria for energy: delta E<", para.delta)
     
@@ -106,17 +106,18 @@ def set_initcond(G):
         f1.close()
         f2.close()
     elif para.inp_type == "pdf":
-        if para.set_initcond == "rp":
+        if para.typ == "rp":
             dim.rp(G)
         
         if para.dimension == 2:
-            if para.init_cond == "vl":
+            if para.typ == "vl":
                 dim.vortex_lattice(G)
                 
-            elif para.init_cond == "rv":
+            elif para.typ == "rv":
                 dim.random_vortices(G)
-    save_wfc(G,0)
-    save_pot(G)
+    if para.save_wfc:
+        save_wfc(G,0)
+        save_pot(G)
 
 def save_pot(G):
     f1 = hp.File( Path(para.op_path)/('pot.h5'), 'w')
@@ -200,7 +201,7 @@ def compute_energy(G, t):
         G.te.append(ncp.asnumpy(G.compute_te()))
         G.chmpot.append(ncp.asnumpy(G.compute_chmpot()))
         ckec, ckei = G.ke_dec()
-        G.ke.append(ncp.asnumpy(G.compute_ke()))
+        G.ke.append(ncp.asnumpy(ckei + ckec))
         G.kei.append(ncp.asnumpy(ckei))
         G.kec.append(ncp.asnumpy(ckec))
         G.qe.append(ncp.asnumpy(G.compute_qe()))
@@ -210,8 +211,8 @@ def compute_energy(G, t):
     elif para.device == 'cpu':
         G.te.append(G.compute_chmpot())
         G.chmpot.append(G.compute_te())
-        ckec, ckei = G.ke_dec()
-        G.ke.append(G.compute_ke())
+        # ckec, ckei = G.ke_dec()
+        G.ke.append(ckec + ckei)
         G.kei.append(ckei)
         G.kec.append(ckec)
         G.qe.append(G.compute_qe())

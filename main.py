@@ -5,14 +5,14 @@ from quTARANG.config.config import ncp
 import quTARANG.config.mpara as para
 
 ##########################################################################
-V = 0.5*(grid.x_mesh**2 + grid.y_mesh**2 + 4**2 * grid.z_mesh**2)
-def gstate_wfc3d():
-    return 1/(ncp.pi)**(3/4)*ncp.exp(-(grid.x_mesh**2 + grid.y_mesh**2+ grid.z_mesh**2)/2)
+V = 0.5*(grid.x_mesh**2 + 4*grid.y_mesh**2)
+def evolve_wfc2d():
+    return 1/ncp.sqrt(ncp.sqrt(2)*ncp.pi)*ncp.exp(-(grid.x_mesh**2 + 2*grid.y_mesh**2)/4)
 
-def gstate_pot3d(t):
+def evolve_pot2d(t):
     return V + 0*t
 
-G = gpe.GPE(wfcfn = gstate_wfc3d, potfn = gstate_pot3d)
+G = gpe.GPE(wfcfn = evolve_wfc2d, potfn = evolve_pot2d)
 ##########################################################################
 
 evolution.time_advance(G)

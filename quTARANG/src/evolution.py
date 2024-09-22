@@ -130,7 +130,7 @@ def img_time(G,t):
     G.renorm()
     E[0] = G.compute_te()
     while error > para.delta:
-        if(i >= para.wfc_start_step and (i - para.wfc_start_step)%para.wfc_iter_step == 0):
+        if(para.save_wfc and i >= para.wfc_start_step and (i - para.wfc_start_step)%para.wfc_iter_step == 0):
             IO.save_wfc(G, i)
         time_adv(G)
         E[1] = G.compute_te()
@@ -147,7 +147,7 @@ def img_time(G,t):
         
 def real_time(G, t):
     for i in range(grid.nstep):
-        if(i >= para.wfc_start_step and (i - para.wfc_start_step)%para.wfc_iter_step == 0):
+        if(para.save_wfc and i >= para.wfc_start_step and (i - para.wfc_start_step)%para.wfc_iter_step == 0):
             IO.save_wfc(G, t)
             
         if(para.save_en and i >= para.en_start_step and (i - para.en_start_step)%para.en_iter_step == 0):
@@ -167,7 +167,8 @@ def real_time(G, t):
         time_adv(G)
         
     if grid.nstep > 1:
-        IO.save_wfc(G,t)
+        if para.save_wfc or para.imgtime:
+            IO.save_wfc(G,t)
         if (para.save_en): 
             IO.compute_energy(G, t)
             IO.save_energy(G)
