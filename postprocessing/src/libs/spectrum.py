@@ -446,7 +446,7 @@ class specanalysis():
         wfcn = wfcn * ncp.exp(-1j * 0.5 * para.dt * (self.pot + para.g * wfcn.conj() * wfcn))
         return wfcn
 
-    def ke_flux(self, Ti = 0, Tf = None, type = 'bin', N = 1000):
+    def ke_flux(self, Ti = 0, Tf = None, type = 'resolved', N = 1000):
         flux_kei = 0
         flux_kec = 0
         self.load_pot()
@@ -467,8 +467,8 @@ class specanalysis():
             if type == 'resolved':
                 k = ncp.linspace(self.dkx, ncp.max(self.kx), N)
                 if dimension == 2:
-                    keiini, kecini = self._ke_spec_resolved3D(wfc, k)
-                    keifin, kecfin = self._ke_spec_resolved3D(wfcn, k)
+                    keiini, kecini = self._ke_spec_resolved2D(wfc, k)
+                    keifin, kecfin = self._ke_spec_resolved2D(wfcn, k)
             
                 elif dimension == 3:
                     keiini, kecini = self._ke_spec_resolved3D(wfc, k)
