@@ -199,7 +199,7 @@ To perform postprocessing on the data, the user has to simply set the path of th
 
     ```python
     #para.py
-    #=======================================#================================================================================
+    #================================================================================
     #                       Change the following parameters
     #================================================================================
     real_dtype = "float64"
@@ -316,6 +316,7 @@ To perform postprocessing on the data, the user has to simply set the path of th
 
     typ = "rp"            # In case of inp_type = "pdf" set the type of initial condition <"rp">, <"rv">, <"vl"> for 2D and <"rp"> for 3D.
 
+    scheme = "TSSP"
     # If inp_type = "dat" then set the input path
     in_path = "/path/to/input_directory"
 
